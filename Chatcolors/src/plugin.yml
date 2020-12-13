@@ -5,6 +5,6 @@ author: Kyushi
 website: www.crafterbase.de
 
 commands:
-  grün:
+  chatcolor:
     description:
     aliases: []
