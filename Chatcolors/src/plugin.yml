@@ -1,5 +1,6 @@
 name: ChatColors
 version: 0.6 beta
+api-version: 1.16
 main: de.kyushi.chatcolors.main.Main
 author: Kyushi
 website: www.crafterbase.de
