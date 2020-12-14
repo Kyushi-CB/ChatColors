@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class ChatCommands implements CommandExecutor {
 
-    public static ArrayList<String> activePlayers = ArrayLists.getActivePlayers();
+    public static ArrayList<String> playerList = ArrayLists.getPlayerList();
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
@@ -18,12 +18,12 @@ public class ChatCommands implements CommandExecutor {
             if (player.hasPermission("chatcolors.green")) {
                 if (args.length == 1) {
                     if (args[0].equalsIgnoreCase("grün")) {
-                        if (!activePlayers.contains(player.getName())) {
-                            activePlayers.add(player.getName());
+                        if (!playerList.contains(player.getName())) {
+                            playerList.add(player.getName());
                             player.sendMessage("debug:5");
 
                         } else
-                            activePlayers.remove(player.getName());
+                            playerList.remove(player.getName());
                         player.sendMessage("debug:4");
                     } else
                         player.sendMessage("debug:3");

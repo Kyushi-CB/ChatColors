@@ -5,10 +5,10 @@ import java.util.ArrayList;
 
 public class ArrayLists {
 
-    private static ArrayList<String> activePlayers = new ArrayList<>();
+    private static ArrayList<String> playerList = new ArrayList<>();
 
-    public static ArrayList<String> getActivePlayers() {
-        return activePlayers;
+    public static ArrayList<String> getPlayerList() {
+        return playerList;
     }
 
 }

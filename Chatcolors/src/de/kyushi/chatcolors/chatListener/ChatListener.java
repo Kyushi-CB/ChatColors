@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
     public class ChatListener implements Listener {
 
-        public static ArrayList<String> activePlayers = ArrayLists.getActivePlayers();
+        public static ArrayList<String> playerList = ArrayLists.getPlayerList();
         @EventHandler
 
         public void handleMutedChat(AsyncPlayerChatEvent event) {
@@ -19,7 +19,7 @@ import java.util.ArrayList;
             String message = event.getMessage().replace("%", "%%");
             message = ChatColor.translateAlternateColorCodes('&', message);
 
-            if (activePlayers.contains(player.getName())) {
+            if (playerList.contains(player.getName())) {
                 event.setFormat("§6[§f" + player.getName() + "§6] » §a" + message);
             } else {
                 event.setFormat("§6[§f" + player.getName() + "§6] » §f" + message);
