@@ -13,10 +13,10 @@ public class Main extends JavaPlugin {
     public void onEnable() {
         Objects.requireNonNull(this.getCommand("chatcolor")).setExecutor(new ChatCommands());
         Bukkit.getPluginManager().registerEvents(new ChatListener(), this);
-        System.out.println("§6[§aChatColors§6] §bPlugin wurde erfolgreich gestartet!");
+        Bukkit.getConsoleSender().sendMessage("§6[§aChatColors§6] §bPlugin wurde erfolgreich gestartet!");
     }
 
     public void onDisable() {
-        System.out.println("§6[§aChatColors§6] §4Plugin wird deaktiviert!");
+        Bukkit.getConsoleSender().sendMessage("§6[§aChatColors§6] §4Plugin wird deaktiviert!");
     }
 }
