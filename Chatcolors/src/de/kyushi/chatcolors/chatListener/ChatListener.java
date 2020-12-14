@@ -9,22 +9,19 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 import java.util.ArrayList;
 
-    public class ChatListener implements Listener {
+public class ChatListener implements Listener {
+    public static ArrayList<String> playerList = ArrayLists.getPlayerList();
 
-        public static ArrayList<String> playerList = ArrayLists.getPlayerList();
-        @EventHandler
-
-        public void handleMutedChat(AsyncPlayerChatEvent event) {
-            Player player = event.getPlayer();
-            String message = event.getMessage().replace("%", "%%");
-            message = ChatColor.translateAlternateColorCodes('&', message);
-
-            if (playerList.contains(player.getName())) {
-                event.setFormat("§6[§f" + player.getName() + "§6] » §a" + message);
-            } else {
-                event.setFormat("§6[§f" + player.getName() + "§6] » §f" + message);
-            }
-
-        }
+    @EventHandler
+    public void handleMutedChat(AsyncPlayerChatEvent event) {
+        Player player = event.getPlayer();
+        String message = event.getMessage().replace("%", "%%");
+        message = ChatColor.translateAlternateColorCodes('&', message);
+        if (playerList.contains(player.getName())) {
+            event.setFormat("§6[§f" + player.getName() + "§6] » §a" + message);
+        } else
+            event.setFormat("§6[§f" + player.getName() + "§6] » §f" + message);
     }
+}
+
 
