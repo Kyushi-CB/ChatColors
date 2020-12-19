@@ -1,29 +1,34 @@
 package de.kyushi.chatcolors.chatListener;
 
-import de.kyushi.chatcolors.arrayLists.ArrayLists;
+import de.kyushi.chatcolors.playerHashMap.Maps;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+import java.util.HashMap;
 
-import java.util.ArrayList;
 
 public class ChatListener implements Listener {
-    public static ArrayList<String> playerList = ArrayLists.getPlayerList();
-    public static String[] playerColors = ArrayLists.getPlayerColors();
+
+    public static HashMap<String, String> playerColor = Maps.getPlayerColor();
 
     @EventHandler
-    public void handleMutedChat(AsyncPlayerChatEvent event) {
-        Player player = event.getPlayer();
-        String message = event.getMessage().replace("%", "%%");
-        message = ChatColor.translateAlternateColorCodes('&', message);
-        if (playerList.contains(player.getName()+playerColors[9])) {
-            event.setFormat("§6[§f" + player.getName() + "§6] » " + playerColors[9] + message);
+    public void handleChat(AsyncPlayerChatEvent e) {
+        Player player = e.getPlayer();
+        String plr = player.getName();
+        String msg = e.getMessage().replace("%", "%%");
+        String clr = playerColor.get(player.getName());
+        msg = ChatColor.translateAlternateColorCodes('&', msg);
+
+        if (playerColor.containsKey(player.getName())) {
+            e.setFormat("§6[§f" + plr + "§6] » " + clr + msg);
 
         } else
-            event.setFormat("§6[§f" + player.getName() + "§6] » §f" + message);
+            e.setFormat("§6[§f" + plr + "§6] » §f" + msg);
     }
 }
+
+
 
 
