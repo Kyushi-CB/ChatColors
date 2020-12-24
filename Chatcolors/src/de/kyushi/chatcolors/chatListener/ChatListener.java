@@ -11,17 +11,17 @@ import java.util.HashMap;
 
 public class ChatListener implements Listener {
 
-    public static HashMap<String, String> playerColor = Maps.getPlayerColor();
+    public static HashMap<String, String> colorMap = Maps.getPlayerColor();
 
     @EventHandler
     public void handleChat(AsyncPlayerChatEvent e) {
         Player player = e.getPlayer();
         String plr = player.getName();
         String msg = e.getMessage().replace("%", "%%");
-        String clr = playerColor.get(player.getName());
+        String clr = colorMap.get(player.getName());
         msg = ChatColor.translateAlternateColorCodes('&', msg);
 
-        if (playerColor.containsKey(player.getName())) {
+        if (colorMap.containsKey(player.getName())) {
             e.setFormat("§6[§f" + plr + "§6] » " + clr + msg);
 
         } else
