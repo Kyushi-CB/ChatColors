@@ -1,11 +1,14 @@
 name: ChatColors
-version: 0.6 beta
+version: 0.7 beta
 api-version: 1.16
 main: de.kyushi.chatcolors.main.Main
 author: Kyushi
-website: www.crafterbase.de
+website: https://github.com/Kyushi-CB/dev/tree/master/Chatcolors
 
 commands:
   chatcolor:
-    description:
-    aliases: []
+    description: Change the color code + formatting of your chat on command! Permission based Chatformatting plugin!
+    aliases: [clr, color, colour]
+    permission: chatcolors
+    permission-message: §4Dazu hast du keine Rechte!
+
