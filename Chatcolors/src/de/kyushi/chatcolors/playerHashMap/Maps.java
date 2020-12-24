@@ -1,17 +1,12 @@
 package de.kyushi.chatcolors.playerHashMap;
 
-
-
-
-
 import java.util.HashMap;
-
 
 public class Maps {
 
-    private static final HashMap<String, String> playerColor = new HashMap<>();
+    private static final HashMap<String, String> colorMap = new HashMap<>();
     public static HashMap<String, String> getPlayerColor() {
-        return playerColor;
+        return colorMap;
     }
 
     private static final String[] colorValue = new String[] {
