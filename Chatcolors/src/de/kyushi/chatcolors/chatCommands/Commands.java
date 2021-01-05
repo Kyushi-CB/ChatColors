@@ -11,10 +11,12 @@ import java.util.HashMap;
 
 public class Commands implements CommandExecutor {
 
-    /*Get the HashMap class + colorValues*/
+    /*Get the HashMap class + color/formatting Strings*/
 
-    public static HashMap<String, String> colorMap = Maps.getPlayerColor();
+    public static HashMap<String, String> colorMap = Maps.getColorMap();
+    public static HashMap<String, String> formattingMap = Maps.getFormattingMap();
     public static String[] colorValue = Maps.getColorValue();
+    public static String[] formattingValue = Maps.getFormattingValue();
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -23,10 +25,10 @@ public class Commands implements CommandExecutor {
 
         if (sender instanceof Player) {
             Player player = (Player) sender;
+
+            /* Start of args*/
+
             if (args.length == 1) {
-
-                /* Start of args*/
-
                 if (args[0].equalsIgnoreCase("help")) {
                     if (player.hasPermission("chatcolors.help")) {
                         player.sendMessage("§6Helpmenu coming soon! ;)");
