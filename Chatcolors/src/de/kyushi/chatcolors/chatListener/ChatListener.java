@@ -11,7 +11,8 @@ import java.util.HashMap;
 
 public class ChatListener implements Listener {
 
-    public static HashMap<String, String> colorMap = Maps.getPlayerColor();
+    public static HashMap<String, String> colorMap = Maps.getColorMap();
+    public static HashMap<String, String> formattingMap = Maps.getFormattingMap();
 
     @EventHandler
     public void handleChat(AsyncPlayerChatEvent e) {
@@ -19,10 +20,11 @@ public class ChatListener implements Listener {
         String plr = player.getName();
         String msg = e.getMessage().replace("%", "%%");
         String clr = colorMap.get(player.getName());
+        String frm = formattingMap.get(player.getName());
         msg = ChatColor.translateAlternateColorCodes('&', msg);
 
         if (colorMap.containsKey(player.getName())) {
-            e.setFormat("§6[§f" + plr + "§6] » " + clr + msg);
+            e.setFormat("§6[§f" + plr + "§6] » " + frm + clr + msg);
 
         } else
             e.setFormat("§6[§f" + plr + "§6] » §f" + msg);
